@@ -4,14 +4,14 @@ services:
     build:
       context: ./Employee  
     ports:
-      - "8001:8000"
+      - "8004:8000"
   leave_service:
     build:
       context: ./Leave  
     ports:
-      - "8002:8000"
+      - "8005:8000"
   reward_service:
     build:
       context: ./Reward  
     ports:
-      - "8003:8000"
+      - "8006:8000"
