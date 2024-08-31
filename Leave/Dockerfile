@@ -1,20 +1,22 @@
-# Sử dụng image Python chính thức làm cơ sở
+# Dockerfile for Django frontend
 FROM python:3.12
 
-# Đặt thư mục làm việc trong container
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set working directory
 WORKDIR /app
 
-# Sao chép file requirements.txt vào thư mục làm việc
-COPY requirements.txt requirements.txt
-
-# Cài đặt các phụ thuộc
+# Install dependencies
+COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Sao chép toàn bộ mã nguồn vào thư mục làm việc
-COPY . .
+# Copy project files
+COPY . /app/
 
-# Cung cấp port mà ứng dụng sẽ chạy trên container
-EXPOSE 8000
+# Expose port 8005
+EXPOSE 8005
 
-# Chạy server Gunicorn khi container được khởi động
-CMD ["gunicorn", "Leave.wsgi:application", "--bind", "0.0.0.0:8000"]
+# Command to run the application
+CMD ["gunicorn", "--bind", "0.0.0.0:8005", "Leave.wsgi:application"]

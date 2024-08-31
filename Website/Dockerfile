@@ -15,8 +15,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project files
 COPY . /app/
 
-# Expose port 8006
-EXPOSE 8006
+# Expose port 8009
+EXPOSE 8009
 
 # Command to run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:8006", "Reward.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8009", "Website.wsgi:application"]
