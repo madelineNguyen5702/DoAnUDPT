@@ -57,16 +57,26 @@ services:
       - "8004:8004"
     networks:
       - mynetwork
+    command: gunicorn --bind 0.0.0.0:8004 Employee.wsgi:application
+    links:
+      - mysql
+
+
   leave_service:
     build:
       context: ./Leave  
     ports:
       - "8005:8005"
+    command: gunicorn --bind 0.0.0.0:8005 Leave.wsgi:application
+
+
   reward_service:
     build:
       context: ./Reward  
     ports:
       - "8006:8006"
+    command: gunicorn --bind 0.0.0.0:8006 Reward.wsgi:application
+
   website:
     image: doanudpt-website_service
     build:
@@ -75,10 +85,38 @@ services:
       - "8009:8009"
     networks:
       - mynetwork
+    command: gunicorn --bind 0.0.0.0:8009 Website.wsgi:application
     depends_on:
       - employee_service
       - leave_service
       - reward_service
+  
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: QLNV
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    networks:
+      - mynetwork
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+      - mynetwork
+
 
 networks:
   default:

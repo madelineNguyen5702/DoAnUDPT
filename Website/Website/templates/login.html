@@ -9,7 +9,7 @@
     <h2>Login</h2>
     <form id="loginForm" method="post">
       {% csrf_token %}
-      <label for="MaNV">Usernae:</label>
+      <label for="MaNV">Username:</label>
       <input type="text" id="MaNV" name="MaNV" required /><br /><br />
 
       <label for="password">Password:</label>
@@ -32,19 +32,22 @@
         const MaNV = document.getElementById("MaNV").value;
         const password = document.getElementById("password").value;
 
-        const response = await fetch("/api/employee/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": "{{ csrf_token }}",
-          },
-          body: JSON.stringify({ MaNV, password }),
-        });
+        const response = await fetch(
+          "http://127.0.0.1:8004/api/employee/login/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRFToken": "{{ csrf_token }}",
+            },
+            body: JSON.stringify({ MaNV, password }),
+          }
+        );
 
         const data = await response.json();
 
         if (response.status === 200) {
-          window.location.href = "/home";
+          window.location.href = "/home"; // Redirect to home on success
         } else {
           document.getElementById("errorMsg").innerText = data.error;
         }

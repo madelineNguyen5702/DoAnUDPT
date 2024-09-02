@@ -6,5 +6,7 @@ from employees.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('api/employee/login/', LoginView.as_view(), name='login'),
     path('api/employee/login/', LoginView.as_view(), name='login'),
+
 ]
