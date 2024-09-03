@@ -57,8 +57,8 @@ def getManagerInfo(request):
     return render(request,'manager/info.html')
 def getManagerLeave(request):
     return render(request,'manager/leave.html')
-def getManagerPoint(request):
-    return render(request,'manager/points.html')
+def getManagerRequests(request):
+    return render(request,'manager/requests.html')
 def getManagerPointList(request):
     return render(request,'manager/pointList.html')
 def getManagerUpdateTimesheet(request):
