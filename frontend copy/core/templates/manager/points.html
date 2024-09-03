@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/styles1.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <h1>Quản lý points</h1>
+
+    <!-- Danh sách button -->
+    <main class="d-flex justify-content-center align-items-center">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-6 custom-btn-spacing">
+                    <button type="button" class="btn btn-primary btn-lg w-100" onclick="window.location.href='givePoints.html'">Thưởng điểm</button>
+                </div>
+                <div class="col-6 custom-btn-spacing">
+                    <button type="button" class="btn btn-primary btn-lg w-100" onclick="window.location.href='pointsList.html'">Danh sách điểm</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    <script>
+        // Nạp header.html vào phần header-placeholder
+        fetch('../components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading the header:', error));
+    </script>
+</body>
+</html>

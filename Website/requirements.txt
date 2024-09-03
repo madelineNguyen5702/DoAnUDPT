@@ -1,6 +1,0 @@
-Django>=4.2,<5
-djangorestframework
-gunicorn
-django-cors-headers>=3.10,<3.15
-mysqlclient
-requests>=2.20.0,<3.0

@@ -49,46 +49,46 @@ services:
       - kong-migrations
 
 
-  employee_service:
-    image: doanudpt-employee_service
-    build:
-      context: ./Employee  
-    ports:
-      - "8004:8004"
-    networks:
-      - mynetwork
-    command: gunicorn --bind 0.0.0.0:8004 Employee.wsgi:application
+  # employee_service:
+  #   image: doanudpt-employee_service
+  #   build:
+  #     context: ./Employee  
+  #   ports:
+  #     - "8004:8004"
+  #   networks:
+  #     - mynetwork
+  #   command: gunicorn --bind 0.0.0.0:8004 Employee.wsgi:application
 
 
 
-  leave_service:
-    build:
-      context: ./Leave  
-    ports:
-      - "8005:8005"
-    command: gunicorn --bind 0.0.0.0:8005 Leave.wsgi:application
+  # leave_service:
+  #   build:
+  #     context: ./Leave  
+  #   ports:
+  #     - "8005:8005"
+  #   command: gunicorn --bind 0.0.0.0:8005 Leave.wsgi:application
 
 
-  reward_service:
-    build:
-      context: ./Reward  
-    ports:
-      - "8006:8006"
-    command: gunicorn --bind 0.0.0.0:8006 Reward.wsgi:application
+  # reward_service:
+  #   build:
+  #     context: ./Reward  
+  #   ports:
+  #     - "8006:8006"
+  #   command: gunicorn --bind 0.0.0.0:8006 Reward.wsgi:application
 
-  website:
-    image: doanudpt-website_service
-    build:
-      context: ./Website  # Thay đổi nếu thư mục khác
-    ports:
-      - "8009:8009"
-    networks:
-      - mynetwork
-    command: gunicorn --bind 0.0.0.0:8009 Website.wsgi:application
-    depends_on:
-      - employee_service
-      - leave_service
-      - reward_service
+  # website:
+  #   image: doanudpt-website_service
+  #   build:
+  #     context: ./Website  # Thay đổi nếu thư mục khác
+  #   ports:
+  #     - "8009:8009"
+  #   networks:
+  #     - mynetwork
+  #   command: gunicorn --bind 0.0.0.0:8009 Website.wsgi:application
+  #   depends_on:
+  #     - employee_service
+  #     - leave_service
+  #     - reward_service
   
   db:
     container_name: mysql-container
@@ -111,26 +111,9 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
-    command: python manage.py runserver 0.0.0.0:8008
-    volumes:
-      - ./app/:/usr/src/app/
-    env_file:
-      - ./.env.dev
-    ports:
-      - 8008:8008
-    depends_on:
-      - db
-    links:
-      - db
-
-  web2:
-    container_name: django-web2
-    build:
-      context: ./afe
-      dockerfile: Dockerfile
     command: python manage.py runserver 0.0.0.0:8007
     volumes:
-      - ./afe/:/usr/src/app/
+      - ./app/:/usr/src/app/
     env_file:
       - ./.env.dev
     ports:
@@ -139,7 +122,57 @@ services:
       - db
     links:
       - db
-  
+
+  service_employee:
+    container_name: service_employee
+    build:
+      context: ./serviceEmployee
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8004
+    volumes:
+      - ./serviceEmployee/:/usr/src/app/
+    env_file:
+      - ./.env.dev
+    ports:
+      - 8004:8004
+    depends_on:
+      - db
+    links:
+      - db
+
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8008
+    volumes:
+      - ./frontend/:/usr/src/app/
+    env_file:
+      - ./.env.dev
+    ports:
+      - 8008:8008
+    depends_on:
+      - db
+    links:
+      - db
+  frontendcopy:
+    container_name: frontendcopy
+    build:
+      context: ./frontendcopy
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8010
+    volumes:
+      - ./frontendcopy/:/usr/src/app/
+    env_file:
+      - ./.env.dev
+    ports:
+      - 8010:8010
+    depends_on:
+      - db
+    links:
+      - db
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: myadmin
