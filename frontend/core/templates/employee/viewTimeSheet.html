@@ -26,16 +26,15 @@
   </head>
   <header>
     <div class="header-left">
-      <a href="home.html" class="navbar-brand">NTP</a>
+      <a href="/employee/home" class="navbar-brand">NTP</a>
     </div>
     <div class="header-right">
       <span class="navbar-brand">Username</span>
-      <a href="../login.html" class="navbar-brand active-link">Đăng xuất</a>
+      <a href="../../login/" class="navbar-brand active-link">Đăng xuất</a>
     </div>
   </header>
   <body id="viewTimesheetPage">
     <h1>Timesheet</h1>
-    <div id="header-placeholder"></div>
     <div class="calendar">
       <div class="calendar-header">
         <div id="prev" class="btn">
@@ -158,9 +157,9 @@
 
           // Thêm sự kiện click để điều hướng đến trang xem timesheet
           dayDiv.addEventListener("click", function () {
-            window.location.href = `timesheet-viewDetail.html?date=${currentDateStr}`;
+            window.location.href = `/employee/timesheet/viewDetail?date=${currentDateStr}`;
           });
-
+          
           daysContainer.appendChild(dayDiv);
         }
 
@@ -191,7 +190,7 @@
 
     // Thêm sự kiện cho nút "Quay lại"
     document.getElementById("back-btn").addEventListener("click", function () {
-      window.location.href = "home.html"; // Chuyển hướng đến trang viewTimesheet.html
+      window.location.href = "/employee/home"; // Chuyển hướng đến trang viewTimesheet.html
     });
   </script>
 </html>

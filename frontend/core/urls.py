@@ -31,6 +31,7 @@ urlpatterns = [
     path('employee/checkin', getEmployeeCheckIn, name='getEmployeeCheckIn'),
     path('employee/leave', getEmployeeLeave, name='getEmployeeLeave'),
     path('employee/points', getEmployeePoints, name='getEmployeePoints'),
+    path('employee/profile', getEmployeeProfile, name='getEmployeeProfile'),
     path('employee/statusRequest', getEmployeesStatusRequest, name='getEmployeeStatusRequest'),
     path('employee/timesheet/viewDetail', getEmployeeViewTimesheetDetail, name='getEmployeeViewTimesheetDetail'),
     path('employee/timesheet/update', getEmployeeUpdateTimesheet, name='getEmployeeUpdateTimesheet'),

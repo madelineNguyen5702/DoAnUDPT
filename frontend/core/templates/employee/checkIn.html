@@ -20,17 +20,14 @@
   </head>
   <header>
     <div class="header-left">
-      <a href="home.html" class="navbar-brand">NTP</a>
+      <a href="/employee/home" class="navbar-brand">NTP</a>
     </div>
     <div class="header-right">
       <span class="navbar-brand">Username</span>
-      <a href="logout.html" class="navbar-brand active-link">Đăng xuất</a>
+      <a href="../../login/" class="navbar-brand active-link">Đăng xuất</a>
     </div>
   </header>
   <body>
-    <!-- phần header -->
-    <div id="header-placeholder"></div>
-
     <h1>Check-in</h1>
 
     <div class="CheckIn-Group">
@@ -107,7 +104,7 @@
       document.getElementById("okBtn").addEventListener("click", function () {
         let checkInTime = `${dd.innerHTML}/${mm.innerHTML}/${yyyy.innerHTML} ${hrs.innerHTML}:${min.innerHTML}:${sec.innerHTML}`;
         localStorage.setItem("checkInTime", checkInTime);
-        window.location.href = "home.html";
+        window.location.href = "/employee/home";
       });
     </script>
   </body>

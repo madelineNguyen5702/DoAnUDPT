@@ -20,11 +20,11 @@
   </head>
   <header>
     <div class="header-left">
-      <a href="home.html" class="navbar-brand">NTP</a>
+      <a href="/employee/home" class="navbar-brand">NTP</a>
     </div>
     <div class="header-right">
       <span class="navbar-brand">Username</span>
-      <a href="../login.html" class="navbar-brand active-link">Đăng xuất</a>
+      <a href="../../login/" class="navbar-brand active-link">Đăng xuất</a>
     </div>
   </header>
   <body>
@@ -87,41 +87,37 @@
       document
         .getElementById("checkInBtn")
         ?.addEventListener("click", function () {
-          window.location.href = "checkIn.html";
+          window.location.href = "/employee/checkin";
         });
-      // Xử lý sự kiện click cho nút Check-out
-      document
-        .getElementById("checkInBtn")
-        ?.addEventListener("click", function () {});
       // Xử lý sự kiện click cho nút Xem timesheet
       document
         .getElementById("timesheetBtn")
         ?.addEventListener("click", function () {
-          window.location.href = "viewTimeSheet.html";
+          window.location.href = "/employee/timesheet";
         });
       // Xử lý sự kiện click cho nút Xem thông tin
       document
         .getElementById("profileBtn")
         ?.addEventListener("click", function () {
-          window.location.href = "profile.html";
+          window.location.href = "/employee/profile";
         });
       // Xử lý sự kiện click cho nút Xem hoạt động
       document
         .getElementById("activityBtn")
         ?.addEventListener("click", function () {
-          window.location.href = "activity.html";
+          window.location.href = "/employee/activity";
         });
       // Xử lý sự kiện click cho nút Gửi yêu cầu
       document
         .getElementById("requestBtn")
         ?.addEventListener("click", function () {
-          window.location.href = "leave.html";
+          window.location.href = "/employee/leave";
         });
       // Xử lý sự kiện click cho nút Points
       document
         .getElementById("pointsBtn")
         ?.addEventListener("click", function () {
-          window.location.href = "points.html";
+          window.location.href = "/employee/points";
         });
 
       // Hiển thị thời gian check-in nếu đã được lưu (dữ liệu lấy từ checkIn.html)
