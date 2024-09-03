@@ -171,7 +171,7 @@ services:
 
 networks:
   default:
-    external:
-      name: kong-net
+    external: true
+    name: kong-net
   mynetwork:
     driver: bridge
