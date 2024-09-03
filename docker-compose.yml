@@ -157,22 +157,7 @@ services:
       - db
     links:
       - db
-  frontendcopy:
-    container_name: frontendcopy
-    build:
-      context: ./frontendcopy
-      dockerfile: Dockerfile
-    command: python manage.py runserver 0.0.0.0:8010
-    volumes:
-      - ./frontendcopy/:/usr/src/app/
-    env_file:
-      - ./.env.dev
-    ports:
-      - 8010:8010
-    depends_on:
-      - db
-    links:
-      - db
+  
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: myadmin
