@@ -14,14 +14,56 @@ class LoginView(APIView):
 def check_name(request):
     return render(request, 'check.html')
 
-def getHome(request):
-    return render(request,'home.html')
-
-def getEmployeeHome(request):
-    return render(request,'employee/home.html')
-
-def getManagerHome(request):
-    return render(request,'manager/home.html')
-
 def getLogin(request):
     return render(request,'login.html')
+
+def getHome(request):
+    return render(request,'home.html')
+# EMPLOYEE VIEW
+def getEmployeeHome(request):
+    return render(request,'employee/home.html')
+def getEmployeeActivity(request):
+    return render(request,'employee/activity.html')
+def getEmployeeCheckIn(request):
+    return render(request,'employee/checkIn.html')
+def getEmployeeLeave(request):
+    return render(request,'employee/leave.html')
+def getEmployeePoints(request):
+    return render(request,'employee/points.html')
+def getEmployeeProfile(request):
+    return render(request,'employee/profile.html')
+def getEmployeesStatusRequest(request):
+    return render(request,'employee/statusRequest.html')
+def getEmployeeViewTimesheetDetail(request):
+    return render(request,'employee/timesheet-viewDetail.html')
+def getEmployeeUpdateTimesheet(request):
+    return render(request,'employee/updateTimesheet.html')
+def getEmployeeViewTimesheet(request):
+    return render(request,'employee/viewTimeSheet.html')
+def getEmployeeVoucher(request):
+    return render(request,'employee/voucher.html')
+def getEmployeeWFH(request):
+    return render(request,'employee/wwfh.html')
+
+
+# MANAGER VIEW
+def getManagerHome(request):
+    return render(request,'manager/home.html')
+def getManagerViewList(request):
+    return render(request,'manager/viewList.html')
+def getManagerGivePoint(request):
+    return render(request,'manager/givePoints.html')
+def getManagerInfo(request):
+    return render(request,'manager/info.html')
+def getManagerLeave(request):
+    return render(request,'manager/leave.html')
+def getManagerPoint(request):
+    return render(request,'manager/points.html')
+def getManagerPointList(request):
+    return render(request,'manager/pointList.html')
+def getManagerUpdateTimesheet(request):
+    return render(request,'manager/updateTimesheet.html')
+def getManagerViewList(request):
+    return render(request,'manager/viewList.html')
+def getManagerWFH(request):
+    return render(request,'manager/wfh.html')

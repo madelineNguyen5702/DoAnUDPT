@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import LoginView, check_name, getHome, getLogin, getEmployeeHome, getManagerHome
+from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
@@ -23,7 +23,30 @@ urlpatterns = [
     path('api/employee/login/', LoginView.as_view(), name='login_view'),
     path('check_name/', check_name, name='check_name'),
     path('home/', getHome, name='getHome'),
+    path('login/', getLogin, name='getLogin'),
+
+    # EMPLOYEE URL
     path('employee/home', getEmployeeHome, name='getEmployeeHome'),
+    path('employee/activity', getEmployeeActivity, name='getEmployeeActivity'),
+    path('employee/checkin', getEmployeeCheckIn, name='getEmployeeCheckIn'),
+    path('employee/leave', getEmployeeLeave, name='getEmployeeLeave'),
+    path('employee/points', getEmployeePoints, name='getEmployeePoints'),
+    path('employee/statusRequest', getEmployeesStatusRequest, name='getEmployeeStatusRequest'),
+    path('employee/timesheet/viewDetail', getEmployeeViewTimesheetDetail, name='getEmployeeViewTimesheetDetail'),
+    path('employee/timesheet/update', getEmployeeUpdateTimesheet, name='getEmployeeUpdateTimesheet'),
+    path('employee/timesheet', getEmployeeViewTimesheet, name='getEmployeeViewTimesheet'),
+    path('employee/voucher', getEmployeeVoucher, name='getEmployeeVoucher'),
+    path('employee/wfh', getEmployeeWFH, name='getEmployeeWFH'),
+    # MANAGER URL
     path('manager/home', getManagerHome, name='getManagerHome'),
-    path('login/', getLogin, name='getLogin')
+    path('manager/viewList', getManagerViewList, name='getManagerViewList'),
+    path('manager/givePoints', getManagerGivePoint, name='getManagerGivePoint'),
+    path('manager/info', getManagerInfo, name='getManagerInfo'),
+    path('manager/leave', getManagerLeave, name='getManagerLeave'),
+    path('manager/points', getManagerPoint, name='getManagerPoint'),
+    path('manager/pointList', getManagerPointList, name='getManagerPointList'),
+    path('manager/updateTimesheet', getManagerUpdateTimesheet, name='getManagerUpdateTimesheet'),
+    path('manager/viewList', getManagerViewList, name='getManagerViewList'),
+    path('manager/wfh', getManagerWFH, name='getManagerWFH'),
+    
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
