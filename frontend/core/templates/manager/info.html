@@ -10,7 +10,15 @@
 
 </head>
 <body>
-    <div id="header-placeholder"></div>
+    <header>
+        <div class="header-left">
+          <a href="../manager/home" class="navbar-brand">NTP</a>
+        </div>
+        <div class="header-right">
+          <span class="username">Username</span>
+          <a href="../logout" class="logout-btn">Đăng xuất</a>
+        </div>
+      </header>
 
     <h2 class="ttcn">Thông tin cá nhân</h2>
 
@@ -38,16 +46,5 @@
         <li class="list-group-item"><strong>STK: </strong>1037458887 Vietcombank</li>
         <li class="list-group-item"><strong>Địa chỉ: </strong>974 Nguyễn Trãi, phường 1, quận 5, TPHCM</li>
     </ul>
-   
-
-    <script>
-        // Nạp header.html vào phần header-placeholder
-        fetch('../components/header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading the header:', error));
-    </script>
 </body>
 </html>

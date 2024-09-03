@@ -208,3 +208,13 @@ h1 {
     border-top: 1px solid #ccc; /* Đường phân cách */
     margin: 20px 0; /* Khoảng cách trên và dưới */
 }
+
+
+.list-group-horizontal .list-group-item {
+    flex: 1;
+    text-align: center;
+  }
+
+  .list-group-horizontal .list-group-item:nth-child(1) {
+    flex: 2;
+  }

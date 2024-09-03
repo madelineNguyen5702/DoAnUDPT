@@ -11,20 +11,17 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <style>
-      /* CSS cho việc căn thẳng hàng các cột */
-      .list-group-horizontal .list-group-item {
-        flex: 1;
-        text-align: center;
-      }
-
-      .list-group-horizontal .list-group-item:nth-child(1) {
-        flex: 2;
-      }
-    </style>
   </head>
   <body>
-    <div id="header-placeholder"></div>
+    <header>
+      <div class="header-left">
+        <a href="../manager/home" class="navbar-brand">NTP</a>
+      </div>
+      <div class="header-right">
+        <span class="username">Username</span>
+        <a href="../logout" class="logout-btn">Đăng xuất</a>
+      </div>
+    </header>
 
     <div class="container mt-4">
       <!-- Form Tìm Kiếm -->
@@ -85,14 +82,5 @@
       </ul>
     </div>
 
-    <script>
-      // Nạp header.html vào phần header-placeholder
-      fetch("../components/header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("header-placeholder").innerHTML = data;
-        })
-        .catch((error) => console.error("Error loading the header:", error));
-    </script>
   </body>
 </html>

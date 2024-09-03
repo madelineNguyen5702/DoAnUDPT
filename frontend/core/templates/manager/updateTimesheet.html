@@ -15,7 +15,15 @@
   </head>
   <body>
     <!-- Phần header sẽ được nạp từ file header.html -->
-    <div id="header-placeholder"></div>
+    <header>
+      <div class="header-left">
+        <a href="../manager/home" class="navbar-brand">NTP</a>
+      </div>
+      <div class="header-right">
+        <span class="username">Username</span>
+        <a href="../logout" class="logout-btn">Đăng xuất</a>
+      </div>
+    </header>
 
     <div class="container mt-4">
       <h2 class="ttcn text-center mb-4">Quản lý yêu cầu cập nhật timesheet</h2>
@@ -25,16 +33,16 @@
         <div class="col-md-3">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="leave.html">Nghỉ phép</a>
+              <a class="nav-link" href="../manager/leave">Nghỉ phép</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="wfh.html">WFH</a>
+              <a class="nav-link" href="../manager/wfh">WFH</a>
             </li>
             <li class="nav-item">
               <a
                 class="nav-link active"
                 aria-current="page"
-                href="updateTimeSheet.html"
+                href="../manager/updateTimesheet"
                 >Cập nhật time-sheet</a
               >
             </li>
@@ -201,13 +209,5 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Script để nạp header.html -->
-    <script>
-      fetch("../components/header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("header-placeholder").innerHTML = data;
-        });
-    </script>
   </body>
 </html>

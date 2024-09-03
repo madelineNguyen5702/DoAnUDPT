@@ -13,31 +13,29 @@
     />
   </head>
   <body>
-    <div id="header-placeholder"></div>
+    <header>
+      <div class="header-left">
+        <a href="../manager/home" class="navbar-brand">NTP</a>
+      </div>
+      <div class="header-right">
+        <span class="username">Username</span>
+        <a href="../logout" class="logout-btn">Đăng xuất</a>
+      </div>
+    </header>
 
     <h2 class="ttcn">Quản lý yêu cầu</h2>
 
     <!-- Nhóm yêu cầu -->
     <div class="list-group qlyc">
-      <a href="leave.html" class="list-group-item list-group-item-action"
+      <a href="../manager/leave" class="list-group-item list-group-item-action"
         >Nghỉ phép</a
       >
-      <a href="wfh.html" class="list-group-item list-group-item-action">WFH</a>
+      <a href="../manager/wfh" class="list-group-item list-group-item-action">WFH</a>
       <a
-        href="updateTimeSheet.html"
+        href="../manager/updateTimesheet"
         class="list-group-item list-group-item-action"
         >Cập nhật time-sheet</a
       >
     </div>
-
-    <script>
-      // Nạp header.html vào phần header-placeholder
-      fetch("../components/header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("header-placeholder").innerHTML = data;
-        })
-        .catch((error) => console.error("Error loading the header:", error));
-    </script>
   </body>
 </html>

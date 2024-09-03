@@ -13,7 +13,15 @@
     />
   </head>
   <body>
-    <div id="header-placeholder"></div>
+    <header>
+      <div class="header-left">
+        <a href="../manager/home" class="navbar-brand">NTP</a>
+      </div>
+      <div class="header-right">
+        <span class="username">Username</span>
+        <a href="../logout" class="logout-btn">Đăng xuất</a>
+      </div>
+    </header>
 
     <h2 class="ttcn">Quản lý yêu cầu wfh</h2>
 
@@ -23,15 +31,15 @@
         <div class="col-md-3">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="leave.html">Nghỉ phép</a>
+              <a class="nav-link" href="../manager/leave">Nghỉ phép</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="wfh.html"
+              <a class="nav-link active" aria-current="page" href="../manager/wfh"
                 >WFH</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="updateTimeSheet.html"
+              <a class="nav-link" href="../manager/updateTimesheet"
                 >Cập nhật time-sheet</a
               >
             </li>
@@ -117,14 +125,5 @@
       crossorigin="anonymous"
     ></script>
 
-    <script>
-      // Nạp header.html vào phần header-placeholder
-      fetch("../components/header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("header-placeholder").innerHTML = data;
-        })
-        .catch((error) => console.error("Error loading the header:", error));
-    </script>
   </body>
 </html>
