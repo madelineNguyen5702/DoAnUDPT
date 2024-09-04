@@ -18,11 +18,11 @@
   </head>
   <header>
     <div class="header-left">
-      <a href="home.html" class="navbar-brand">NTP</a>
+      <a href="/employee/home" class="navbar-brand">NTP</a>
     </div>
     <div class="header-right">
       <span class="navbar-brand">Username</span>
-      <a href="logout.html" class="navbar-brand active-link">Đăng xuất</a>
+      <a href="../../login/" class="navbar-brand active-link">Đăng xuất</a>
     </div>
   </header>
   <body class="points-body" id="points-body">
@@ -52,4 +52,12 @@
       </div>
     </div>
   </body>
+  <script>
+      // Xử lý sự kiện click cho nút Gửi yêu cầu
+      document
+        .getElementById("view-voucher")
+        ?.addEventListener("click", function () {
+          window.location.href = "/employee/voucher";
+        });
+  </script>
 </html>

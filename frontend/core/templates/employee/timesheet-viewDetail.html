@@ -17,11 +17,11 @@
   </head>
   <header>
     <div class="header-left">
-      <a href="home.html" class="navbar-brand">NTP</a>
+      <a href="/employee/home" class="navbar-brand">NTP</a>
     </div>
     <div class="header-right">
       <span class="navbar-brand">Username</span>
-      <a href="../login.html" class="navbar-brand active-link">Đăng xuất</a>
+      <a href="../../login/" class="navbar-brand active-link">Đăng xuất</a>
     </div>
   </header>
   <body>
@@ -79,14 +79,14 @@
         document
           .getElementById("back-btn")
           .addEventListener("click", function () {
-            window.location.href = "viewTimesheet.html"; // Chuyển hướng đến trang viewTimesheet.html
+            window.location.href = "/employee/timesheet"; // Chuyển hướng đến trang viewTimesheet.html
           });
 
         // Thêm sự kiện cho nút "Cập nhật"
         document
           .getElementById("upt-btn")
           .addEventListener("click", function () {
-            window.location.href = "updateTimesheet.html"; // Chuyển hướng đến trang viewTimesheet.html
+            window.location.href = "/employee/timesheet/update"; // Chuyển hướng đến trang viewTimesheet.html
           });
       });
     </script>

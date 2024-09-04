@@ -43,7 +43,7 @@ def getEmployeeViewTimesheet(request):
 def getEmployeeVoucher(request):
     return render(request,'employee/voucher.html')
 def getEmployeeWFH(request):
-    return render(request,'employee/wwfh.html')
+    return render(request,'employee/wfh.html')
 
 
 # MANAGER VIEW
