@@ -25,7 +25,7 @@ urlpatterns = [
     path('home/', getHome, name='getHome'),
     path('login/', getLogin, name='getLogin'),
 
-    # EMPLOYEE URL
+    # EMPLOYEE URL  
     path('employee/home', getEmployeeHome, name='getEmployeeHome'),
     path('employee/activity', getEmployeeActivity, name='getEmployeeActivity'),
     path('employee/checkin', getEmployeeCheckIn, name='getEmployeeCheckIn'),
@@ -49,5 +49,11 @@ urlpatterns = [
     path('manager/updateTimesheet', getManagerUpdateTimesheet, name='getManagerUpdateTimesheet'),
     path('manager/viewList', getManagerViewList, name='getManagerViewList'),
     path('manager/wfh', getManagerWFH, name='getManagerWFH'),
+    # ADMIN URL
+    path('adminWeb/signup', getAdminSignup, name='getAdminSignup'),
+    path('adminWeb/home', getAdminHome, name='getAdminHome'),
+    path('adminWeb/viewList', getAdminViewList, name='getAdminViewList'),
+    # URBOX
+    path('urbox/', views.fetch_urbox_data, name='fetch_urbox_data'),
     
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

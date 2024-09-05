@@ -18,10 +18,11 @@ def getLogin(request):
     return render(request,'login.html')
 
 def getHome(request):
-    return render(request,'home.html')
+    return render(request,'admin/home.html')
 # EMPLOYEE VIEW
 def getEmployeeHome(request):
-    return render(request,'employee/home.html')
+    return render(request, 'employee/home.html')
+
 def getEmployeeActivity(request):
     return render(request,'employee/activity.html')
 def getEmployeeCheckIn(request):
@@ -67,3 +68,12 @@ def getManagerViewList(request):
     return render(request,'manager/viewList.html')
 def getManagerWFH(request):
     return render(request,'manager/wfh.html')
+
+
+# ADMIN VIEW
+def getAdminSignup(request):
+    return render(request,'admin/signup.html')
+def getAdminHome(request):
+    return render(request,'admin/home.html')
+def getAdminViewList(request):
+    return render(request,'admin/viewList.html')
